@@ -38,19 +38,40 @@
     />
   </head>
   <body>
-    <h1>電通大生専用マッチングアプリ</h1>
-    <section id="question">
-      <p>あなたは電通大生ですか？</p>
-      <button id="yes">はい</button>
-      <button id="no">いいえ</button>
-    </section>
-    <section id="retry" style="display: none">
-      <button id="retry">再マッチング</button>
-      <button id="restart">最初からやり直す</button>
-    </section>
-    <section id="result" style="display: none">
-      <p id="result-text"></p>
-    </section>
+    <head>
+      <h1>電通大生専用マッチングアプリ</h1>
+    </head>
+    <main>
+      <section id="question">
+        <p>あなたは電通大生ですか？</p>
+        <button id="yes">はい</button>
+        <button id="no">いいえ</button>
+      </section>
+      <section id="retry" style="display: none">
+        <button id="retry">再マッチング</button>
+        <button id="restart">最初からやり直す</button>
+      </section>
+      <section id="result" style="display: none">
+        <p id="result-text"></p>
+      </section>
+    </main>
+
+    <hr />
+
+    <footer>
+      <p>
+        inspired by
+        <a href="https://hutinoatari.github.io/cheapTransfer/">最安経路検索</a>
+      </p>
+
+      <p>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        mimifuwacc
+      </p>
+    </footer>
 
     <script>
       const questionSection = document.querySelector("#question");
