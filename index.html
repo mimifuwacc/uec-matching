@@ -117,6 +117,7 @@
         retrySection.style.display = "block";
 
         if (filtered.length > 0) {
+          // 処理する対象が空配列なので、マッチングすることはないはず
           resultText.textContent = "予期せぬ動作が発生しました";
           return;
         }
