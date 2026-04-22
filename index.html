@@ -91,20 +91,36 @@
         console.log(resultSection);
         resultText.textContent = "マッチング中";
 
-        await new Promise((resolve) => {
+        const matched = await new Promise((resolve) => {
           for (let i = 0; i < 5; i++) {
             setTimeout(
               () => {
                 resultText.textContent += ".";
-                if (i === 4) resolve();
+                if (i === 4) resolve([]);
               },
               (i + 1) * 500,
             );
           }
         });
 
+        const ip = await fetch("/api/ip")
+          .then((r) => r.json())
+          .then(async (data) => {
+            return data.ip;
+          })
+          .catch((e) => {
+            return 0;
+          });
+
+        const filtered = matched.filter((user) => user.ip === ip);
+
         retrySection.style.display = "block";
 
+        if (filtered.length > 0) {
+          // 処理する対象が空配列なので、マッチングすることはないはず
+          resultText.textContent = "予期せぬ動作が発生しました";
+          return;
+        }
         resultText.textContent = "あなたにマッチする人は見つかりませんでした";
       };
 
